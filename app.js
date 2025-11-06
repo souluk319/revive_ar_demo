@@ -147,3 +147,40 @@ document.getElementById('closeHelp').onclick = (e) => {
   e.preventDefault();
   document.getElementById('help-panel').classList.add('hide');
 };
+
+// ---- Help modal robust handlers (iOS/Safari safe) ----
+const helpBtn = document.getElementById('help');
+const helpPanel = document.getElementById('help-panel');
+const closeBtn = document.getElementById('closeHelp');
+
+// 닫기: 버튼/배경 클릭 모두 지원 + 해시 제거 + 플래그 저장
+function closeHelp(e) {
+  if (e) e.preventDefault();
+  helpPanel.classList.add('hide');
+  try {
+    if (location.hash) history.replaceState(null, '', location.pathname + location.search);
+    sessionStorage.setItem('revive_help_closed', '1');
+  } catch (_) { }
+}
+
+// 열기
+function openHelp(e) {
+  if (e) e.preventDefault();
+  helpPanel.classList.remove('hide');
+  try { sessionStorage.removeItem('revive_help_closed'); } catch (_) { }
+}
+
+// 바인딩 (안전하게 addEventListener 사용)
+if (helpBtn) helpBtn.addEventListener('click', openHelp, { passive: false });
+if (closeBtn) closeBtn.addEventListener('click', closeHelp, { passive: false });
+// 배경(모달 오버레이) 탭해도 닫히게
+helpPanel?.addEventListener('click', (e) => {
+  if (e.target === helpPanel) closeHelp(e);
+}, { passive: false });
+
+// 최초 자동 표시: 파라미터 없고, 이번 세션에 이미 닫지 않았을 때만
+setTimeout(() => {
+  const qs = new URLSearchParams(location.search);
+  const alreadyClosed = (sessionStorage.getItem('revive_help_closed') === '1');
+  if (!qs.has('name') && !alreadyClosed) openHelp();
+}, 300);
