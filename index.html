@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="ko">
+
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>RE:VIVE AR Label Demo</title>
   <link rel="stylesheet" href="style.css" />
 </head>
+
 <body>
   <div id="ui-bar">
     <div class="brand">RE:VIVE • AR Label</div>
@@ -13,7 +15,10 @@
       <button id="toggleInfo">정보 패널</button>
       <button id="recenter">라벨 재배치</button>
       <button id="screenshot">스크린샷</button>
-      <a id="help" href="#help-panel">?</a>
+      <!-- 기존 -->
+      <!-- a id="help" href="#help-panel">?</a -->
+      <!-- 변경 -->
+      <button id="help" type="button">?</button>
     </div>
   </div>
 
@@ -44,7 +49,9 @@
         <li>이 페이지를 스마트폰에서 열고, 카메라 권한을 허용하세요.</li>
         <li>민짜(라벨 없는) 페트병을 화면 중앙에 놓고, 라벨 박스를 병에 맞춰 드래그/확대/회전하세요.</li>
         <li>우상단 '정보 패널' 버튼으로 성분/이벤트 정보를 열고 닫을 수 있어요.</li>
-        <li>URL 파라미터로 제품 정보를 바꿀 수 있어요. 예) <code>?name=RE:VIVE%20COLA&ing=물,탄산,콜라향&size=500ml&event=MAMA%20Eco%20Challenge&img=label.png</code></li>
+        <li>URL 파라미터로 제품 정보를 바꿀 수 있어요. 예)
+          <code>?name=RE:VIVE%20COLA&ing=물,탄산,콜라향&size=500ml&event=MAMA%20Eco%20Challenge&img=label.png</code>
+        </li>
       </ol>
       <p><em>이건 초간단 웹 데모입니다. 실제 제품 인식/공간 고정은 추후 비전 AI(이미지 타깃, WebXR)로 고도화합니다.</em></p>
       <button id="closeHelp">닫기</button>
@@ -53,4 +60,5 @@
 
   <script src="app.js"></script>
 </body>
+
 </html>
