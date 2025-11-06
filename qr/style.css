@@ -1,0 +1,20 @@
+*{box-sizing:border-box}html,body{margin:0;height:100%;background:#000;color:#fff;font-family:system-ui,-apple-system,Segoe UI,Roboto,Apple SD Gothic Neo,Malgun Gothic,sans-serif}
+#ui-bar{position:fixed;top:0;left:0;right:0;height:52px;display:flex;align-items:center;justify-content:space-between;background:rgba(0,0,0,.45);backdrop-filter:blur(6px);padding:0 12px;z-index:10}
+.brand{font-weight:700;letter-spacing:.2px}
+.actions{display:flex;gap:8px;align-items:center}
+.actions button,.actions a{background:#17c964;color:#000;border:none;padding:8px 10px;border-radius:8px;font-weight:700;text-decoration:none}
+.actions a{display:inline-flex;align-items:center;justify-content:center;width:32px;height:32px;border-radius:50%;padding:0}
+#camera{position:fixed;top:0;left:0;width:100vw;height:100vh;object-fit:cover}
+#label{position:fixed;left:50%;top:50%;transform:translate(-50%,-50%);width:min(80vw,420px);background:rgba(255,255,255,.92);color:#000;border-radius:18px;box-shadow:0 10px 30px rgba(0,0,0,.35);padding:12px;touch-action:none;z-index:5;transform-origin:50% 0%}
+.label-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px}
+#productName{font-weight:900;font-size:18px}
+#badge{font-size:10px;background:#111;color:#17c964;padding:4px 8px;border-radius:999px;font-weight:800;letter-spacing:.3px}
+#artwork{height:120px;background:linear-gradient(180deg,#e8fff4,#d7fff2);border-radius:12px;margin-bottom:8px;display:flex;align-items:center;justify-content:center}
+#artwork::after{content:'AR LABEL';color:#0a7c5b;font-weight:900;letter-spacing:1.4px}
+#info{background:#f5f5f5;border-radius:12px;padding:10px;color:#111;max-height:400px;overflow:hidden;transition:max-height .25s ease}
+#info.collapsed{max-height:0;padding:0;border:0}
+.modal{position:fixed;inset:0;background:rgba(0,0,0,.6);display:flex;align-items:center;justify-content:center;z-index:20}
+.modal-card{background:#111;border:1px solid #2a2a2a;border-radius:16px;max-width:min(92vw,640px);padding:16px}
+.modal-card button{background:#17c964;color:#000;border:none;padding:10px 12px;border-radius:10px;font-weight:900}
+.hide{display:none !important}
+.note{color:#9ae6c9}

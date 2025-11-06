@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>RE:VIVE • QR-Anchor AR Label</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div id="ui-bar">
+    <div class="brand">RE:VIVE • QR Anchor</div>
+    <div class="actions">
+      <button id="toggleInfo">정보 패널</button>
+      <button id="reset">리셋</button>
+      <a class="help" href="#help">?</a>
+    </div>
+  </div>
+
+  <video id="camera" autoplay playsinline muted></video>
+
+  <!-- AR Label overlay; its transform will follow detected QR polygon -->
+  <div id="label">
+    <div class="label-header">
+      <span id="productName">RE:VIVE COLA</span>
+      <span id="badge">DIGITAL LABEL</span>
+    </div>
+    <div id="artwork"></div>
+    <div id="info" class="collapsed">
+      <div><strong>성분:</strong> <span id="ingredients">물, 탄산수, 카라멜색소, 천연향료</span></div>
+      <div><strong>용량:</strong> <span id="size">500ml</span></div>
+      <div><strong>이벤트:</strong> <span id="event">#FandomForEarth</span></div>
+    </div>
+  </div>
+
+  <div id="help" class="modal hide">
+    <div class="modal-card">
+      <h2>QR 앵커 AR 라벨 데모</h2>
+      <ol>
+        <li>라벨 없는 페트병에 <strong>QR 스티커</strong>를 붙이세요. (아무 QR도 가능)</li>
+        <li>이 페이지를 스마트폰에서 열고 카메라 권한을 허용하세요.</li>
+        <li>카메라가 QR을 인식하면, 그 위치/각도에 맞춰 <em>디지털 라벨</em>이 자동 부착됩니다.</li>
+        <li>정보 패널 버튼으로 성분/이벤트를 열고 닫을 수 있어요.</li>
+      </ol>
+      <p class="note">주의: iOS는 Safari 17+ 에서만 <code>BarcodeDetector</code>가 지원됩니다. 미지원 기기는 수동 배치 모드로 동작합니다.</p>
+      <button id="closeHelp">닫기</button>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
